@@ -1,0 +1,19 @@
+[package]
+name = "htlc"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+exchange-io = { path = "io", version = "0.1.0", default-features = false }
+gstd = { git = "https://github.com/gear-tech/gear.git", tag = "v1.1.1" }
+sha2 = { version = "0.10.8", default-features = false }
+hex-literal = "0.4.1"
+
+[build-dependencies]
+gear-wasm-builder = { git = "https://github.com/gear-tech/gear.git", tag = "v1.1.1", features = [
+    "metawasm",
+] }
+exchange-io = { path = "io", version = "0.1.0", default-features = false }

@@ -1,0 +1,29 @@
+[package]
+name = "oracle_contract"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+price-oracle-io = { path = "io", version = "0.1.0", default-features = false }
+gstd = { git = "https://github.com/gear-tech/gear.git", tag = "v1.1.1" }
+gmeta = { git = "https://github.com/gear-tech/gear.git", tag = "v1.1.1" }
+codec = { package = "parity-scale-codec", version = "3.6", default-features = false }
+scale-info = { version = "2.9", default-features = false, features = [
+    "derive",
+] }
+async-trait = "0.1.81"
+
+[build-dependencies]
+price-oracle-io = { path = "io", version = "0.1.0", default-features = false }
+gear-wasm-builder = { git = "https://github.com/gear-tech/gear.git", tag = "v1.1.1", features = [
+    "metawasm",
+] }
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"

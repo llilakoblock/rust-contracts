@@ -1,0 +1,18 @@
+[package]
+name = "exchange-state"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+exchange-io = { path = "io", version = "0.1.0", default-features = false }
+gstd = { git = "https://github.com/gear-tech/gear.git", tag = "v1.4.1" }
+gmeta = { git = "https://github.com/gear-tech/gear.git", tag = "v1.4.1", features = [
+    "codegen",
+] }
+
+
+[build-dependencies]
+exchange-io = { path = "io", version = "0.1.0", default-features = false }
+gear-wasm-builder = { git = "https://github.com/gear-tech/gear.git", tag = "v1.4.1", features = [
+    "metawasm",
+] }
